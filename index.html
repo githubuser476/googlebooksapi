@@ -1,7 +1,7 @@
 <!-- 
 File: index.html
 Date: Rebecca Kennedy
-Programmer: 2017.05.02
+Programmer: 2017.05.04
 -->
 
 <!DOCTYPE html>
@@ -9,21 +9,66 @@ Programmer: 2017.05.02
     <head>
         <meta charset="utf-8">
         <title>CAS265 Google Books APIs Practice</title>
+        <link href="https://fonts.googleapis.com/css?family=Exo:900|Merriweather:300" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <h1></h1>
-        <img src="" id="bookThumb">
-        <div></div>
-        Author: <span id="authorName"></span>;
-        <div></div>
-        Description: <span id="bookDescription"></span>;
-        <div></div>
-        Page Count: <span id="pageCount"></span>;
-        <div></div>
-        Category: <span id="category"></span>;
-        <div></div>
-        Date published: <span id="publishDate"></span>;
+        <main>
+            <img src="" id="bookThumb">
+            
+            <table>
+                <tr>
+                    <td>Author</td>
+                    <td><span id="authorName"></span></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><span id="bookDescription"></span></td>
+                </tr>
+                <tr>
+                    <td>Page Count</td>
+                    <td><span id="pageCount"></span></td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td><span id="category"></span></td>
+                </tr>
+                <tr>
+                    <td>Date published</td>
+                    <td><span id="publishDate"></span></td>
+                </tr>
+                <tr>
+                    <td>Average Rating</td>
+                    <td><span id="avgRating"></span></td>
+                </tr>
+                <tr>
+                    <td>Ratings Count</td>
+                    <td><span id="ratingsCount"></span></td>
+                </tr>
+                <tr>
+                    <td>Print Type</td>
+                    <td><span id="printType"></span></td>
+                </tr>
+                <tr>
+                    <td>Saleability</td>
+                    <td><span id="saleability"></span></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td><span id="country"></span></td>
+                </tr>
+                <tr>
+                    <td>Information Link</td>
+                    <td><span id="infoLink"></span></td>
+                </tr>
+                <tr>
+                    <td>Content Version</td>
+                    <td><span id="contentVersion"></span></td>
+                </tr>
+            </table>
+        </main>
         
         <script>
             var xhr = new XMLHttpRequest();
@@ -40,7 +85,14 @@ Programmer: 2017.05.02
             $("#pageCount").text(bookObject.items[0].volumeInfo.pageCount);
             $("#bookThumb").attr("src", bookObject.items[0].volumeInfo.imageLinks.thumbnail); //not done
             $("#category").text(bookObject.items[0].volumeInfo.categories);
-            $("#publishDate").text(bookObject.items[0].volumeInfo.publishedDate); 
+            $("#publishDate").text(bookObject.items[0].volumeInfo.publishedDate);
+            $("#avgRating").text(bookObject.items[0].volumeInfo.averageRating);
+            $("#ratingsCount").text(bookObject.items[0].volumeInfo.ratingsCount);
+            $("#printType").text(bookObject.items[0].volumeInfo.printType);
+            $("#saleability").text(bookObject.items[0].saleInfo.saleability);
+            $("#country").text(bookObject.items[0].saleInfo.country);
+            $("#infoLink").text(bookObject.items[0].volumeInfo.infoLink);
+            $("#contentVersion").text(bookObject.items[0].volumeInfo.contentVersion);
             
         </script>
     </body>

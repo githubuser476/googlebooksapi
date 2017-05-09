@@ -1,7 +1,7 @@
 <!-- 
 File: index.html
 Date: Rebecca Kennedy
-Programmer: 2017.05.04
+Programmer: 2017.09.04
 -->
 
 <!DOCTYPE html>
@@ -14,6 +14,19 @@ Programmer: 2017.05.04
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
+        <form action="index.html" method="get">
+            Search by ISBN (ISBN-10 or ISBN-13)
+            <input type="text" name="isbn">
+            <button type="submit">Search for book!</button>
+        </form>
+        <a href="index.html?isbn=0891909893">The Screwtape Letters</a>
+        <a href="index.html?isbn=0064471063">The Horse and His Boy</a>
+        <a href="index.html?isbn=9780064471046">The Lion, the Witch, and the Wardrobe</a>
+        <a href="index.html?isbn=0064405052">The Magician's Nephew</a>
+        <a href="index.html?isbn=0064471055">Prince Caspian</a>
+        <a href="index.html?isbn=0064405028">The Voyage of the Dawn Treader</a>
+        <a href="index.html?isbn=0064471098">The Silver Chair</a>
+        <a href="index.html?isbn=006447108X">The Last Battle</a>
         <h1></h1>
         <main>
             <img src="" id="bookThumb">
@@ -72,7 +85,13 @@ Programmer: 2017.05.04
         
         <script>
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:0891909893", false);
+            // Sample ISBN for testing(Screwtape Letters): 0891909893
+            //Sample ISBN for testing(The Horse and His Boy): 1585161519
+            
+            //The following JavaScript line pulls the quwerystring from the URL of the page and only pulls the part of the URL after the = symbol in the URL.
+            var queryString = document.URL.substring(document.URL.indexOf('=') + 1);
+            // The next does the actual API call. We append the valude of queryString to the end of the API (NOT DONE TYPING...)
+        xhr.open("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:" + queryString, false);
             xhr.send();
             console.log(xhr.status); // if this returns 200, then you are in like Flynn
             var bookObject = JSON.parse(xhr.responseText);
@@ -93,7 +112,6 @@ Programmer: 2017.05.04
             $("#country").text(bookObject.items[0].saleInfo.country);
             $("#infoLink").text(bookObject.items[0].volumeInfo.infoLink);
             $("#contentVersion").text(bookObject.items[0].volumeInfo.contentVersion);
-            
         </script>
     </body>
 </html>

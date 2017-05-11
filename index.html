@@ -1,7 +1,7 @@
 <!-- 
 File: index.html
 Date: Rebecca Kennedy
-Programmer: 2017.09.04
+Programmer: 2017.05.11
 -->
 
 <!DOCTYPE html>
@@ -10,26 +10,40 @@ Programmer: 2017.09.04
         <meta charset="utf-8">
         <title>CAS265 Google Books APIs Practice</title>
         <link href="https://fonts.googleapis.com/css?family=Exo:900|Merriweather:300" rel="stylesheet">
+        <link href="css/reset.css" rel="stylesheet" type="text/css">
+        <link href="css/helper.css" rel="stylesheet" type="text/css">
+        <link href="css/grid.css" rel="stylesheet" type="text/css">
         <link href="css/styles.css" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <form action="index.html" method="get">
-            Search by ISBN (ISBN-10 or ISBN-13)
+            <span class="search">Search by ISBN (ISBN-10 or ISBN-13)</span>
             <input type="text" name="isbn">
             <button type="submit">Search for book!</button>
         </form>
-        <a href="index.html?isbn=0891909893">The Screwtape Letters</a>
-        <a href="index.html?isbn=0064471063">The Horse and His Boy</a>
-        <a href="index.html?isbn=9780064471046">The Lion, the Witch, and the Wardrobe</a>
-        <a href="index.html?isbn=0064405052">The Magician's Nephew</a>
-        <a href="index.html?isbn=0064471055">Prince Caspian</a>
-        <a href="index.html?isbn=0064405028">The Voyage of the Dawn Treader</a>
-        <a href="index.html?isbn=0064471098">The Silver Chair</a>
-        <a href="index.html?isbn=006447108X">The Last Battle</a>
+        <!-- Still working on grid... -->
+        
+        
+        <ul class="book-links section group">
+            <div class="col span_6_of_12">
+            <li><a href="index.html?isbn=0891909893">The Screwtape Letters</a></li>
+            <li><a href="index.html?isbn=0064405052">The Magician's Nephew</a></li>
+            <li><a href="index.html?isbn=9780064471046">The Lion, the Witch, and the Wardrobe</a></li>
+            <li><a href="index.html?isbn=0064471063">The Horse and His Boy</a></li>
+            </div>
+            <div class="col span_6_of_12">
+            <li><a href="index.html?isbn=0064471055">Prince Caspian</a></li>
+            <li><a href="index.html?isbn=0064405028">The Voyage of the Dawn Treader</a></li>
+            <li><a href="index.html?isbn=0064471098">The Silver Chair</a></li>
+            <li><a href="index.html?isbn=006447108X">The Last Battle</a></li>
+            </div>
+            </ul>
         <h1></h1>
         <main>
-            <img src="" id="bookThumb">
+            <div class="center">
+            <img src="" id="bookThumb" alt="Book Cover">
+            </div>
             
             <table>
                 <tr>
@@ -74,7 +88,7 @@ Programmer: 2017.09.04
                 </tr>
                 <tr>
                     <td>Information Link</td>
-                    <td><span id="infoLink"></span></td>
+                    <td><span id="infoLink" class="break"></span></td>
                 </tr>
                 <tr>
                     <td>Content Version</td>
